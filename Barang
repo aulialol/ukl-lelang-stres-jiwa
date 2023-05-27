@@ -1,0 +1,85 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package LatihanUKL;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author aulia
+ */
+public class Barang implements Set_Get{
+    
+    private ArrayList<Integer> idMasyarakat = new ArrayList<>();
+    private ArrayList<String> namaBarang = new ArrayList<>();
+    private ArrayList<Integer> hargaAwal = new ArrayList<>();
+    private ArrayList<Boolean> status = new ArrayList<>();
+    
+    public Barang () {
+        this.namaBarang.add("Depression Glass");
+        this.hargaAwal.add(100);
+        this.status.add(true);
+        
+        this.namaBarang.add("Invisible Sandwich");
+        this.hargaAwal.add(80);
+        this.status.add(true);
+        
+        this.namaBarang.add("Hantu di Toples");
+        this.hargaAwal.add(8600);
+        this.status.add(true);
+    }
+
+    public ArrayList<Integer> getIdMasyarakat() {
+        return idMasyarakat;
+    }
+    public void setIdMasyarakat(ArrayList<Integer> idMasyarakat) {
+        this.idMasyarakat = idMasyarakat;
+    }
+
+    public String getnamaBarang(int nama) {
+        return this.namaBarang.get(nama);
+    }
+    public void setNamaBarang(String namaBarang) {
+        this.namaBarang.add(namaBarang);
+    }
+
+    public Integer gethargaAwal(int harga) {
+        return this.hargaAwal.get(harga);
+    }
+    public void setargaAwal(Integer hargaAwal) {
+        this.hargaAwal.add(hargaAwal);
+    }
+   
+    public void setstatus(Boolean status) {
+        this.status.add(status);
+    }
+    public void edistatus(int a, Boolean b) {
+        status.set(a, b);
+    }
+    public Boolean getstatus(int status) {
+        return this.status.get(status);
+    }
+
+    @Override
+    public void setId(int id) {
+        this.idMasyarakat.add(id);
+    }
+
+    @Override
+    public void setHarga(int harga) {
+        this.hargaAwal.add(harga);
+    }
+
+    @Override
+    public int getId(int Id) {
+        return this.idMasyarakat.get(Id);
+    }
+
+    @Override
+    public int getHarga(int Harga) {
+        return this.hargaAwal.get(Harga);
+    }
+}
