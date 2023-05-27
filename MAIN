@@ -1,0 +1,134 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package LatihanUKL;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author aulia
+ */
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        Barang b = new Barang();
+        Masyarakat m = new Masyarakat();
+        Petugas p = new Petugas();
+        Lelang l = new Lelang();
+        String menang = null;
+
+        System.out.println("                   DAFTAR NAMA");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("No\tNama\t\tAlamat\t\t\tTelepon");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("1. \t" + m.getNamaMasyarakat(0) + "\t\t" + m.getAlamat(0) + "\t\t" + m.getTelepon(0));
+        System.out.println("2. \t" + m.getNamaMasyarakat(1) + "\t\t" + m.getAlamat(1) + "\t\t" + m.getTelepon(1));
+        System.out.println("----------------------------------------------------------");
+        System.out.print("Pilih masyarakat > ");
+        int masy = input.nextInt();
+
+        System.out.println("");
+        System.out.println("                   DAFTAR PETUGAS");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("No\tNama\t\tAlamat\t\t\tTelepon");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("1. \t" + p.getnamaPetugas(0) + "\t\t" + p.getAlamat(0) + "\t\t" + p.getTelepon(0));
+        System.out.println("2. \t" + p.getnamaPetugas(1) + "\t\t" + p.getAlamat(1) + "\t\t" + p.getTelepon(1));
+        System.out.println("3. \t" + p.getnamaPetugas(2) + "\t\t" + p.getAlamat(2) + "\t\t" + p.getTelepon(2));
+        System.out.println("----------------------------------------------------------");
+        System.out.print("Pilih petugas > ");
+        int petugas = input.nextInt();
+
+        System.out.println("");
+        System.out.println("                   DAFTAR BARANG");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("No\tNama\t\t\tHarga Awal\tStatus");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("1. \t" + b.getnamaBarang(0) + "\t" + b.gethargaAwal(0) + "\t\t" + b.getstatus(0));
+        System.out.println("2. \t" + b.getnamaBarang(1) + "\t" + b.gethargaAwal(1) + "\t\t" + b.getstatus(1));
+        System.out.println("3. \t" + b.getnamaBarang(2) + "	    	" + b.gethargaAwal(2) + "\t\t" + b.getstatus(2));
+        System.out.println("----------------------------------------------------------");
+        System.out.print("Pilih barang > ");
+        int barang = input.nextInt();
+
+        System.out.println("");
+        int tawar;
+        boolean status = true;
+        int nawar;
+        
+        
+        while (status == true) {
+            System.out.println("Penawar 1 = " + m.getNamaMasyarakat(masy - 1));
+            int penawar1 = l.getIdPenawar(masy - 1);
+
+            System.out.println("Apakah ingin menawar lebih tinggi? y=1/n=0");
+            nawar = input.nextInt();
+            if (nawar == 1) {
+                while (status == true) {
+                    System.out.print("Masukkan harga > ");
+                    tawar = input.nextInt();
+                    if (tawar <= b.gethargaAwal(barang - 1) || tawar <= l.gethargaTawar()) {
+                        System.out.println("Harga yang dimasukkan kurang, mohon mengulangi");
+
+                    } else {
+                        l.sethargaTawar(tawar);
+                        menang = m.getNamaMasyarakat(masy - 1);
+                        
+                        status = false;
+                    }
+            System.out.println("");
+                }
+            }
+            else if (nawar == 0){
+                status = false;
+            }
+            System.out.println("");
+            status = true;
+            int penawar2 = 0;
+            if (penawar1 == 1) {
+                penawar2 = 1;
+            } else if (penawar1 == 2) {
+                penawar2 = 0;
+            }
+            System.out.println("Penawar 2 = " + m.getNamaMasyarakat(penawar2));
+            System.out.println("Apakah ingin menawar lebih tinggi? y=1/n=0");
+            nawar = input.nextInt();
+            if (nawar == 1) {
+                while (status == true) {
+                    System.out.print("Masukkan harga > ");
+                    tawar = input.nextInt();
+                    if (tawar <= b.gethargaAwal(barang - 1) || tawar <= l.gethargaTawar()) {
+                        System.out.println("Harga yang dimasukkan kurang, mohon mengulangi");
+
+                    } else {
+                        l.sethargaTawar(tawar);
+                        menang = m.getNamaMasyarakat(penawar2);
+                        
+                        status = false;
+                    }
+                }
+            } 
+            System.out.println("");
+            
+            status = true;
+            if (nawar == 0){
+                status = false;
+            }
+        }
+        b.edistatus(barang-1, false);
+        
+
+        System.out.println("");
+        System.out.println("=================================");
+        System.out.println("Nama petugas : " + p.getnamaPetugas(petugas - 1));
+        System.out.println("Barang : " + b.getnamaBarang(barang - 1));
+        System.out.println("Pemenang : " + menang);
+        System.out.println("Harga akhir : " + l.gethargaTawar());
+        System.out.println("Status : " + b.getstatus(barang - 1));
+        System.out.println("=================================");
+    }
+}
