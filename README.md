@@ -1,1 +1,0 @@
-# ukl-lelang-stres-jiwa
