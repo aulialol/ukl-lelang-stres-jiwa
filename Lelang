@@ -1,0 +1,78 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package LatihanUKL;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author aulia
+ */
+public class Lelang implements Set_Get {
+
+    private ArrayList<Integer> idPenawar = new ArrayList<>();
+    private ArrayList<Integer> idBarang = new ArrayList<>();
+    private ArrayList<Integer> hargaTawar = new ArrayList<>();
+
+    public Lelang() {
+        this.idPenawar.add(1);
+        this.idPenawar.add(2);
+        this.hargaTawar.add(0);
+    }
+
+    public Integer getIdPenawar(int id) {
+        return idPenawar.get(id);
+    }
+
+    public void setIdPenawar(Integer idPenawar) {
+        this.idPenawar.add(idPenawar);
+    }
+
+    public ArrayList<Integer> getIdBarang() {
+        return idBarang;
+    }
+
+    public void setIdBarang(ArrayList<Integer> idBarang) {
+        this.idBarang = idBarang;
+    }
+
+    public Integer gethargaTawar() {
+        return hargaTawar.get(0);
+    }
+
+    public void sethargaTawar(Integer hargaTawar) {
+        this.hargaTawar.set(0, hargaTawar);
+    }
+    
+    public void setIdPenawar(int idPenawar){
+        this.idPenawar.add(idPenawar);
+    }
+
+    @Override
+    public void setId(int id) {
+        this.idBarang.add(id);
+    }
+
+    @Override
+    public void setHarga(int harga) {
+        this.hargaTawar.add(harga);
+    }
+
+    public int getIdP(int IdP){
+        return this.idPenawar.get(IdP);
+    }
+    
+    @Override
+    public int getId(int id) {
+        return this.idBarang.get(id);
+    }
+
+    @Override
+    public int getHarga(int harga) {
+        return this.hargaTawar.get(harga);
+    }
+
+}
