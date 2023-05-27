@@ -1,0 +1,55 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package LatihanUKL;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author aulia
+ */
+public class Petugas extends Masyarakat{
+
+    private ArrayList<String> namaPetugas = new ArrayList<>();
+    private ArrayList<String> alamat = new ArrayList<>();
+    private ArrayList<String> telepon = new ArrayList<>();
+
+    public Petugas() {
+        this.namaPetugas.add("Stuart");
+        this.alamat.add("Jl. Minion I");
+        this.telepon.add("123456");
+        
+        this.namaPetugas.add("Bob");
+        this.alamat.add("Jl. Minion II");
+        this.telepon.add("123456");
+        
+        this.namaPetugas.add("Kevin");
+        this.alamat.add("Jl. Minion III");
+        this.telepon.add("123456");
+    }
+
+    public String getnamaPetugas(int nama) {
+        return this.namaPetugas.get(nama);
+    }
+    public void setnamaPetugas(String namaPetugas) {
+        this.namaPetugas.add(namaPetugas);
+    }
+
+    public String getAlamat(int alamat) {
+        return this.alamat.get(alamat);
+    }
+    public void setAlamat(String alamat) {
+        this.alamat.add(alamat);
+    }
+
+    public String getTelepon(int telepon) {
+        return this.telepon.get(telepon);
+    }
+    public void setTelepon(String telepon) {
+        this.telepon.add(telepon);
+    }
+    
+}
