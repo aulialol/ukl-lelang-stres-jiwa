@@ -1,0 +1,56 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package LatihanUKL;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author aulia
+ */
+public class Masyarakat {
+    
+    private ArrayList<String> namaMasyarakat = new ArrayList<>();
+    private ArrayList<String> alamat = new ArrayList<>();
+    private ArrayList<String> telepon = new ArrayList<>();
+    
+    public Masyarakat(){
+        this.namaMasyarakat.add("Margo");
+        this.alamat.add("New Mexico");
+        this.telepon.add("123456");
+        
+        this.namaMasyarakat.add("Agnes");
+        this.alamat.add("New Mexico");
+        this.telepon.add("654321");
+               
+    }
+
+    public String getNamaMasyarakat(int nama) {
+        return this.namaMasyarakat.get(nama);
+    }
+
+    public void setNamaMasyarakat(String namaMasyarakat) {
+        this.namaMasyarakat.add(namaMasyarakat);
+    }
+
+    public String getAlamat(int alamat) {
+        return this.alamat.get(alamat);
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat.add(alamat);
+    }
+
+    public String getTelepon(int telepon) {
+        return this.telepon.get(telepon);
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon.add(telepon);
+    }
+
+    
+}
